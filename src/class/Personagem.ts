@@ -50,13 +50,11 @@ export default class Character {
     console.log(`${this.weapon.getName()} equipada.`);
   }
 
-  calculateDamage() {
+  protected calculateDamage() {
     if (this.weapon === null) {
       return this.strength;
     } else {
       return this.strength + this.weapon.getDamage();
     }
   }
-
-  attack() {}
 }
