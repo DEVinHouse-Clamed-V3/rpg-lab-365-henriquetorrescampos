@@ -1,16 +1,17 @@
-import Arma from "./class/Arma";
+import { Arma } from "./class/Arma";
+import { Enemy } from "./class/Inimigo";
+import { Character } from "./class/Personagem";
 
 const sword = new Arma("Espada do Zeus", "Uma espada de choque", 10);
 
-const swordName = sword.getName();
-const swordDescription = sword.getDescription();
-const swordDamage = sword.getDamage();
+console.log(
+  `Arma: ${sword.getName()}, Dano: ${sword.getDamage()}, Descrição: ${sword.getDescription()}`
+);
 
-console.log(swordName);
-console.log(swordDescription);
-console.log(swordDamage);
+const warrior = new Character("Luna", 400, 10);
+warrior.equipedWeapon(sword);
 
-const newDamage = sword.setDamage(30);
-console.log(newDamage);
-// sword.setDamage(30);
-// console.log(sword.getDamage());
+const enemy_orc = new Enemy("Orc", 100, 160);
+
+warrior.toAttack(enemy_orc);
+enemy_orc.toAttack(warrior);

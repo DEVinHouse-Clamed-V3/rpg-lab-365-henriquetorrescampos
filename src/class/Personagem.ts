@@ -1,15 +1,18 @@
-import Arma from "./Arma";
+import { Arma } from "./Arma";
+import { Enemy } from "./Inimigo";
 
-export default class Character {
-  private name: string = "";
-  private life: number = 100;
-  private strength: number = 10;
+export class Character {
+  private name: string;
+  private life: number;
+  private strength: number;
   private weapon: Arma | null = null;
+  private isAlive: boolean;
 
   constructor(name: string, life: number = 100, strength: number = 10) {
     this.name = name;
     this.life = life;
     this.strength = strength;
+    this.isAlive = true;
   }
 
   getName() {
@@ -39,9 +42,16 @@ export default class Character {
   }
 
   receiveDamage(damage: number) {
-    this.life = this.life - damage;
-    if (this.life < 0) {
-      console.log("Character defeated.");
+    if (!this.isAlive) {
+      console.log(`${this.name} is already dead`);
+      return;
+    }
+
+    this.life -= damage;
+
+    if (this.life <= 0) {
+      this.isAlive = false;
+      console.log(`${this.name} has been defeated.`);
     }
   }
 
@@ -51,10 +61,18 @@ export default class Character {
   }
 
   protected calculateDamage() {
-    if (this.weapon === null) {
-      return this.strength;
+    return this.strength + (this.weapon?.getDamage() || 0);
+  }
+
+  toAttack(char: Enemy) {
+    const odds = Math.random();
+
+    if (odds < 0.5) {
+      console.log(`${this.name} failed to attack ${char.getName()}`);
     } else {
-      return this.strength + this.weapon.getDamage();
+      const damage = this.calculateDamage();
+      console.log(`${this.name} attacks ${char.getName()} for ${damage}`);
+      char.receiveDamage(damage);
     }
   }
 }

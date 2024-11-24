@@ -1,11 +1,11 @@
-class Arma {
-  private readonly name: string = "";
-  private damage: number = 0;
-  private readonly description: string = "";
+export class Arma {
+  private readonly name: string;
+  private readonly description: string;
+  private damage: number;
 
   // parametros opcionais sempre ficam no final do construtor
-  constructor(ola: string, description: string, damage: number = 0) {
-    this.name = ola;
+  constructor(name: string, description: string, damage: number = 0) {
+    this.name = name;
     this.description = description;
     this.damage = damage;
   }
@@ -23,11 +23,8 @@ class Arma {
   setDamage(damage: number) {
     if (damage < 0) {
       console.log("Dano não pode ser negativo");
-    } else {
-      this.damage = damage;
     }
-    return damage;
+
+    this.damage = damage;
   }
 }
-
-export default Arma;

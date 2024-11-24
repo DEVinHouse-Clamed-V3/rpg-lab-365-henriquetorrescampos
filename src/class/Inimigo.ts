@@ -1,11 +1,11 @@
-import Character from "./Personagem";
+import { Character } from "./Personagem";
 
-export default class Enemy extends Character {
-  isAttack(char: Character) {
+export class Enemy extends Character {
+  toAttack(char: Character) {
     const odds = Math.random();
 
     if (odds < 0.5) {
-      console.log("Fail to attack");
+      console.log(`${this.getName()} fails to attack`);
     } else {
       char.receiveDamage(this.calculateDamage());
     }
@@ -14,12 +14,12 @@ export default class Enemy extends Character {
   randomBehave(char: Character) {
     const randomAction = Math.random();
 
-    if (randomAction < 0.4) {
-      console.log("Enemy decides to wait");
+    if (randomAction < 0.5) {
+      console.log(`${this.getName()} decides to wait`);
     } else {
-      console.log("Enemy attack");
+      console.log(`${this.getName()} decides to attack.`);
 
-      this.isAttack(char);
+      this.toAttack(char);
     }
   }
 }
