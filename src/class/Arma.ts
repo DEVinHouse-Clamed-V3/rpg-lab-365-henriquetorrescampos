@@ -21,3 +21,5 @@ class Arma {
     }
   }
 }
+
+export default Arma;
