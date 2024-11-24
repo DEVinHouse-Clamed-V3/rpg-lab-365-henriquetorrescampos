@@ -1,2 +1,15 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/HzYlWno6)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=17288342&assignment_repo_type=AssignmentRepo)
+# Instruções de Trabalho:
+
+Toda a atividade deve ser usada utilizando os recursos do Typescript
+
+Para cada questão, crie um branch nova com o nome correspondente à tarefa. Lembre-se de seguir o fluxo de trabalho de desenvolvimento utilizando pull requests para enviar as alterações.
+
+## Passos:
+
+1. Crie um branch para cada questão que for resolver.
+
+2. Implemente a solução da questão no respectivo branch.
+
+3. Quando terminar, faça um pull request para revisão do código.
+
+Isso garantirá um processo de desenvolvimento organizado e colaborativo. Lembre-se de seguir boas práticas de commit e manter o código claro e bem documentado.
